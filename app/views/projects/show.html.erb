@@ -1,0 +1,16 @@
+<div class="container">
+  <%= render @project %>
+    <div>
+        <%= link_to "Edit this project", edit_project_path(@project) %> |
+        <%= link_to "Back to projects", projects_path %>
+        <%= button_to "Destroy this project", @project, method: :delete %>
+  </div>
+</div>
+<div class="container">
+  <%= render 'discussions/form',project:@project, discussion:@project.discussions.build,submit_label: "Reply"%>
+  <%@discussions.each do |discussion| %>
+    <%=render 'discussions/discussion', 
+      project: @project, 
+      discussion: discussion %>
+    <%end%>
+</div>

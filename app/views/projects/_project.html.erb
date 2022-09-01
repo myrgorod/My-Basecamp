@@ -1,0 +1,10 @@
+<div id="<%= dom_id project %>">
+     <h2><%= project.title %></h2>  
+     <h4>created by <%= link_to project.user.name, user_path(project.user)%></h4>
+     <h6><%= pluralize(project.views,"view")%></h6>
+ <div> 
+  <h4>Project Description</h4>    
+    <%= project.body %>
+  </div>
+
+</div>
