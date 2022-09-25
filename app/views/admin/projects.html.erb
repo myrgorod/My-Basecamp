@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="text-center">Administrator</h1>
+  <%= render 'admin/nav_links'%>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Project</th>
+        <th scope="col">Author</th>
+        <th scope="col">Discussions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <th scope="row"><%= project.id %></th>
+          <td><%= link_to project.title.truncate(15),admin_project_path(project)%></td>
+          <td><%= project.user.name %></td>
+          <td><%= pluralize(project.discussions.size, "Discussion") %></td>
+        </tr>
+        <%end%>
+    </tbody>
+  </table>  
+</div>

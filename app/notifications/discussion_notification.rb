@@ -19,8 +19,8 @@ class DiscussionNotification < Noticed::Base
   #
   def message
     @project    = Project.find(params[:discussion][:project_id])
-    @discussion = Discussion.find(params[:discuccion][:id])
-    @user       = User.find(@discussion.user_id) 
+    @discussion = Discussion.find(params[:discussion][:id])
+    @user = User.find(@discussion.user_id) 
     "#{@user.email} commented on #{@project.title.truncate(10)}"
   end
   #
